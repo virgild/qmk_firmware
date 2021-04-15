@@ -55,9 +55,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 void encoder_update_user(uint8_t index, bool clockwise) {
     if (clockwise) {
-      tap_code(KC_VOLU);
+      if (IS_LAYER_ON(2)) {
+        tap_code(KC_PAUS);
+      } else {
+        tap_code(KC_VOLU);
+      }
     } else {
-      tap_code(KC_VOLD);
+      if (IS_LAYER_ON(2)) {
+        tap_code(KC_SLCK);
+      } else {
+        tap_code(KC_VOLD);
+      }
     }
 }
 
