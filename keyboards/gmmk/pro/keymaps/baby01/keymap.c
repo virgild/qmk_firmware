@@ -55,13 +55,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 void encoder_update_user(uint8_t index, bool clockwise) {
     if (clockwise) {
-      if (IS_LAYER_ON(2)) {
+      if (get_mods() & MOD_MASK_GUI) {
         tap_code(KC_PAUS);
       } else {
         tap_code(KC_VOLU);
       }
     } else {
-      if (IS_LAYER_ON(2)) {
+      if (get_mods() & MOD_MASK_GUI) {
         tap_code(KC_SLCK);
       } else {
         tap_code(KC_VOLD);
