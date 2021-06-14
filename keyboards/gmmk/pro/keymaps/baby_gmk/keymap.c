@@ -53,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 
-void encoder_update_user(uint8_t index, bool clockwise) {
+bool encoder_update_user(uint8_t index, bool clockwise) {
     if (clockwise) {
       if (get_mods() & MOD_MASK_GUI) {
         tap_code(KC_PAUS);
@@ -67,4 +67,6 @@ void encoder_update_user(uint8_t index, bool clockwise) {
         tap_code(KC_VOLD);
       }
     }
+
+    return true;
 }
